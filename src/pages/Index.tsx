@@ -20,25 +20,25 @@ const Index = () => {
       name: 'Колбасные изделия', 
       description: 'Варёные, полукопчёные, сырокопчёные',
       icon: 'ChefHat',
-      color: 'from-primary to-pink-500'
+      color: 'from-primary to-red-600'
     },
     { 
       name: 'Деликатесы', 
       description: 'Изысканные мясные деликатесы',
       icon: 'Award',
-      color: 'from-secondary to-emerald-500'
+      color: 'from-secondary to-red-700'
     },
     { 
       name: 'Охлаждённое мясо', 
       description: 'Свежее мясо высшего качества',
       icon: 'Beef',
-      color: 'from-accent to-orange-500'
+      color: 'from-accent to-red-500'
     },
     { 
       name: 'Полуфабрикаты', 
       description: 'Готовые решения для кухни',
       icon: 'Package',
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-red-600 to-orange-600'
     },
   ];
 
@@ -96,7 +96,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 bg-gradient-to-br from-primary via-pink-500 to-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/30">
+              <div className="w-11 h-11 bg-gradient-to-br from-primary via-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/50">
                 <span className="text-2xl">🥩</span>
               </div>
               <div>
@@ -131,11 +131,14 @@ const Index = () => {
         </div>
       </header>
 
-      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.5s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
+      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-background to-red-950/10">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.15),transparent_50%)]" />
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_60%,rgba(220,38,38,0.2),transparent_50%)]" />
+          <div className="absolute inset-0" style={{ 
+            backgroundImage: 'linear-gradient(rgba(239,68,68,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(239,68,68,0.03) 1px, transparent 1px)',
+            backgroundSize: '100px 100px'
+          }} />
         </div>
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20">
@@ -151,7 +154,7 @@ const Index = () => {
               
               <div className="space-y-6">
                 <h2 className="text-6xl lg:text-8xl font-bold leading-none tracking-tight">
-                  <span className="bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-primary via-red-500 to-red-600 bg-clip-text text-transparent">
                     МЯСТОРГ
                   </span>
                 </h2>
@@ -177,15 +180,15 @@ const Index = () => {
               
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className="space-y-1">
-                  <div className="text-4xl font-bold bg-gradient-to-br from-primary to-pink-500 bg-clip-text text-transparent">500+</div>
+                  <div className="text-4xl font-bold bg-gradient-to-br from-primary to-red-600 bg-clip-text text-transparent">500+</div>
                   <div className="text-sm text-muted-foreground">Видов продукции</div>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-4xl font-bold bg-gradient-to-br from-secondary to-emerald-500 bg-clip-text text-transparent">15k</div>
+                  <div className="text-4xl font-bold bg-gradient-to-br from-red-600 to-orange-600 bg-clip-text text-transparent">15k</div>
                   <div className="text-sm text-muted-foreground">Тонн в год</div>
                 </div>
                 <div className="space-y-1">
-                  <div className="text-4xl font-bold bg-gradient-to-br from-accent to-orange-500 bg-clip-text text-transparent">98%</div>
+                  <div className="text-4xl font-bold bg-gradient-to-br from-accent to-red-500 bg-clip-text text-transparent">98%</div>
                   <div className="text-sm text-muted-foreground">Довольных</div>
                 </div>
               </div>
@@ -207,7 +210,7 @@ const Index = () => {
                           <div className="text-sm text-muted-foreground mb-1">Производство</div>
                           <div className="text-3xl font-bold">15 000 т/год</div>
                         </div>
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center">
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-red-700 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/50">
                           <Icon name="TrendingUp" className="text-white" size={32} />
                         </div>
                       </div>
@@ -224,7 +227,7 @@ const Index = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative animate-scale-in">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-primary/30 rounded-[3rem] blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-red-700/30 to-primary/30 rounded-[3rem] blur-3xl" />
               <Card className="relative border-2 border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
                 <img 
                   src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg" 
@@ -233,7 +236,7 @@ const Index = () => {
                 />
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-secondary to-emerald-500 rounded-2xl flex items-center justify-center">
+                    <div className="w-14 h-14 bg-gradient-to-br from-secondary to-red-700 rounded-2xl flex items-center justify-center shadow-lg shadow-secondary/50">
                       <Icon name="Award" className="text-white" size={28} />
                     </div>
                     <div>
@@ -242,7 +245,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/50">
                       <Icon name="Shield" className="text-white" size={28} />
                     </div>
                     <div>
@@ -430,7 +433,7 @@ const Index = () => {
               <div className="space-y-4">
                 <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 hover:border-primary/50 transition-all cursor-pointer group">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-red-700 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-primary/50">
                       <Icon name="MapPin" className="text-white" size={24} />
                     </div>
                     <div>
@@ -442,7 +445,7 @@ const Index = () => {
                 
                 <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 hover:border-secondary/50 transition-all cursor-pointer group">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-secondary to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 bg-gradient-to-br from-secondary to-red-700 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-secondary/50">
                       <Icon name="Phone" className="text-white" size={24} />
                     </div>
                     <div>
@@ -454,8 +457,8 @@ const Index = () => {
                 
                 <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 hover:border-accent/50 transition-all cursor-pointer group">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-accent to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <Icon name="Mail" className="text-background" size={24} />
+                    <div className="w-14 h-14 bg-gradient-to-br from-accent to-red-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg shadow-accent/50">
+                      <Icon name="Mail" className="text-white" size={24} />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
@@ -502,7 +505,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/30">
+                <div className="w-11 h-11 bg-gradient-to-br from-primary to-red-700 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/50">
                   <span className="text-2xl">🥩</span>
                 </div>
                 <h3 className="text-xl font-bold">МЯСТОРГ</h3>
