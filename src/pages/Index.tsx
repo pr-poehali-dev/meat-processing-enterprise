@@ -123,44 +123,83 @@ const Index = () => {
         </div>
       </header>
 
-      <section id="home" className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
+      <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-primary/20 to-background">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+        </div>
+        
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl animate-fade-in-up">
-            <Badge className="mb-4 text-sm px-4 py-1">30 лет традиций качества</Badge>
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Мясные продукты<br />
-              <span className="text-primary">премиум класса</span>
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Мы производим качественные мясные изделия с 1994 года. Современное оборудование, 
-              строгий контроль качества и опытные специалисты — залог нашего успеха.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => scrollToSection('products')} className="text-lg px-8">
-                Наша продукция
-                <Icon name="ArrowRight" className="ml-2" size={20} />
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollToSection('about')} className="text-lg px-8">
-                О компании
-              </Button>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-6 border border-white/20">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="text-sm font-semibold">30 лет традиций качества</span>
+              </div>
+              
+              <h2 className="text-6xl md:text-8xl font-bold mb-6 leading-none">
+                <span className="bg-gradient-to-r from-primary via-red-600 to-primary bg-clip-text text-transparent animate-fade-in">МЯСТОРГ</span>
+              </h2>
+              
+              <p className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
+                Мясные продукты<br />премиум класса
+              </p>
+              
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+                Современное оборудование, строгий контроль качества и опытные специалисты с 1994 года
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Button size="lg" onClick={() => scrollToSection('products')} className="text-lg px-8 shadow-lg shadow-primary/50 hover:shadow-xl hover:shadow-primary/60 transition-all">
+                  Наша продукция
+                  <Icon name="ArrowRight" className="ml-2" size={20} />
+                </Button>
+                <Button size="lg" variant="outline" onClick={() => scrollToSection('about')} className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20">
+                  О компании
+                </Button>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-1">500+</div>
+                  <div className="text-sm text-muted-foreground">Видов продукции</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-1">15k т</div>
+                  <div className="text-sm text-muted-foreground">Производим в год</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-1">98%</div>
+                  <div className="text-sm text-muted-foreground">Довольных клиентов</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative animate-scale-in hidden md:block">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent rounded-3xl blur-2xl" />
+              <div className="relative bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                <img 
+                  src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/4025602d-ede6-466e-b9cc-0195f08c5c5a.jpg" 
+                  alt="Продукция МЯСТОРГ"
+                  className="rounded-2xl shadow-2xl w-full"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-6 shadow-2xl">
+                  <div className="text-4xl font-bold">30+</div>
+                  <div className="text-sm opacity-90">Лет на рынке</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="py-16 bg-secondary text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {achievements.map((item, index) => (
-              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-4xl md:text-5xl font-bold mb-2">{item.number}</div>
-                <div className="text-sm md:text-base opacity-90">{item.label}</div>
-              </div>
-            ))}
-          </div>
+        
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <Icon name="ChevronDown" className="text-muted-foreground" size={32} />
         </div>
       </section>
+
+
 
       <section id="about" className="py-20">
         <div className="container mx-auto px-4">
