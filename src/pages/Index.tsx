@@ -1,12 +1,431 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState('home');
+
+  const scrollToSection = (id: string) => {
+    setActiveSection(id);
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const products = [
+    { 
+      name: 'Колбасные изделия', 
+      description: 'Варёные, полукопчёные, сырокопчёные колбасы премиум качества',
+      icon: 'ChefHat' 
+    },
+    { 
+      name: 'Деликатесы', 
+      description: 'Изысканные мясные деликатесы для гурманов',
+      icon: 'Award' 
+    },
+    { 
+      name: 'Охлаждённое мясо', 
+      description: 'Свежее мясо говядины, свинины, птицы',
+      icon: 'Beef' 
+    },
+    { 
+      name: 'Полуфабрикаты', 
+      description: 'Котлеты, пельмени, блинчики собственного производства',
+      icon: 'Package' 
+    },
+  ];
+
+  const achievements = [
+    { number: '30+', label: 'Лет на рынке' },
+    { number: '500+', label: 'Видов продукции' },
+    { number: '15 000 т', label: 'Производим в год' },
+    { number: '98%', label: 'Довольных клиентов' },
+  ];
+
+  const news = [
+    {
+      title: 'Новая линия по производству деликатесов',
+      date: '15 декабря 2024',
+      description: 'Запущена современная производственная линия европейского образца',
+      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg'
+    },
+    {
+      title: 'МЯСТОРГ получил сертификат качества ISO',
+      date: '3 декабря 2024',
+      description: 'Подтверждено соответствие международным стандартам качества',
+      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/4025602d-ede6-466e-b9cc-0195f08c5c5a.jpg'
+    },
+    {
+      title: 'Расширение производства в 2025 году',
+      date: '20 ноября 2024',
+      description: 'Планируется увеличение мощностей на 40%',
+      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/6bad1b10-5e5a-472d-9bff-ea5a245b0ab0.jpg'
+    },
+  ];
+
+  const vacancies = [
+    {
+      title: 'Технолог мясного производства',
+      type: 'Полная занятость',
+      salary: 'от 80 000 ₽',
+      requirements: 'Высшее образование, опыт от 2 лет'
+    },
+    {
+      title: 'Оператор линии',
+      type: 'Сменный график',
+      salary: 'от 60 000 ₽',
+      requirements: 'Ответственность, внимательность'
+    },
+    {
+      title: 'Мастер производства',
+      type: 'Полная занятость',
+      salary: 'от 90 000 ₽',
+      requirements: 'Опыт управления персоналом от 3 лет'
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-2xl">🥩</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-primary">МЯСТОРГ</h1>
+                <p className="text-xs text-muted-foreground">Качество проверенное временем</p>
+              </div>
+            </div>
+            <nav className="hidden md:flex gap-6">
+              {['home', 'about', 'products', 'news', 'vacancies', 'contacts'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    activeSection === item ? 'text-primary' : 'text-foreground'
+                  }`}
+                >
+                  {item === 'home' && 'Главная'}
+                  {item === 'about' && 'О компании'}
+                  {item === 'products' && 'Продукция'}
+                  {item === 'news' && 'Новости'}
+                  {item === 'vacancies' && 'Вакансии'}
+                  {item === 'contacts' && 'Контакты'}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <section id="home" className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl animate-fade-in-up">
+            <Badge className="mb-4 text-sm px-4 py-1">30 лет традиций качества</Badge>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              Мясные продукты<br />
+              <span className="text-primary">премиум класса</span>
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Мы производим качественные мясные изделия с 1994 года. Современное оборудование, 
+              строгий контроль качества и опытные специалисты — залог нашего успеха.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" onClick={() => scrollToSection('products')} className="text-lg px-8">
+                Наша продукция
+                <Icon name="ArrowRight" className="ml-2" size={20} />
+              </Button>
+              <Button size="lg" variant="outline" onClick={() => scrollToSection('about')} className="text-lg px-8">
+                О компании
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-secondary text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {achievements.map((item, index) => (
+              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-4xl md:text-5xl font-bold mb-2">{item.number}</div>
+                <div className="text-sm md:text-base opacity-90">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <Badge className="mb-4">О нас</Badge>
+              <h2 className="text-4xl font-bold mb-6">История и достижения</h2>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  <strong className="text-foreground">МЯСТОРГ</strong> — одно из ведущих мясоперерабатывающих предприятий региона. 
+                  С 1994 года мы поставляем качественную продукцию на столы тысяч семей.
+                </p>
+                <p>
+                  Наше производство оснащено современным европейским оборудованием, что позволяет 
+                  выпускать более 500 наименований продукции по новейшим технологиям.
+                </p>
+                <p>
+                  Мы гордимся нашей командой профессионалов — более 400 специалистов ежедневно 
+                  работают над тем, чтобы наша продукция соответствовала самым высоким стандартам качества.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <div className="flex items-center gap-2">
+                  <Icon name="Award" className="text-primary" size={24} />
+                  <span className="font-semibold">Сертификат ISO 9001</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="Shield" className="text-primary" size={24} />
+                  <span className="font-semibold">HACCP система</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative animate-scale-in">
+              <img 
+                src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg" 
+                alt="Производство"
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <Badge className="mb-4">Продукция</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши категории</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Широкий ассортимент качественной мясной продукции для любого случая
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product, index) => (
+              <Card 
+                key={index} 
+                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in cursor-pointer"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader>
+                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <Icon name={product.icon as any} className="text-primary" size={32} />
+                  </div>
+                  <CardTitle className="text-xl">{product.name}</CardTitle>
+                  <CardDescription className="text-base">{product.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="news" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <Badge className="mb-4">Новости</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Последние публикации</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Будьте в курсе развития нашего предприятия
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {news.map((item, index) => (
+              <Card 
+                key={index} 
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in cursor-pointer group"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className="relative overflow-hidden h-48">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader>
+                  <div className="text-sm text-muted-foreground mb-2">{item.date}</div>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
+                  <CardDescription className="text-base">{item.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="vacancies" className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <Badge className="mb-4">Карьера</Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Открытые вакансии</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Присоединяйтесь к нашей команде профессионалов
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {vacancies.map((vacancy, index) => (
+              <Card 
+                key={index} 
+                className="hover:shadow-lg transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader>
+                  <CardTitle className="text-xl mb-2">{vacancy.title}</CardTitle>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Icon name="Clock" size={16} />
+                      <span>{vacancy.type}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-primary font-semibold">
+                      <Icon name="Wallet" size={16} />
+                      <span>{vacancy.salary}</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-muted-foreground">
+                      <Icon name="CheckCircle2" size={16} className="mt-0.5 flex-shrink-0" />
+                      <span>{vacancy.requirements}</span>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <Button className="w-full">Откликнуться</Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div className="animate-fade-in">
+              <Badge className="mb-4">Контакты</Badge>
+              <h2 className="text-4xl font-bold mb-6">Свяжитесь с нами</h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="MapPin" className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Адрес</h3>
+                    <p className="text-muted-foreground">г. Москва, ул. Промышленная, д. 15</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Phone" className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Телефон</h3>
+                    <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Mail" className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <p className="text-muted-foreground">info@myastorg.ru</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name="Clock" className="text-primary" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Режим работы</h3>
+                    <p className="text-muted-foreground">Пн-Пт: 8:00 - 20:00<br />Сб-Вс: 9:00 - 18:00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Card className="animate-scale-in">
+              <CardHeader>
+                <CardTitle>Отправить сообщение</CardTitle>
+                <CardDescription>Мы ответим вам в ближайшее время</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-4">
+                  <div>
+                    <Input placeholder="Ваше имя" />
+                  </div>
+                  <div>
+                    <Input type="email" placeholder="Email" />
+                  </div>
+                  <div>
+                    <Input type="tel" placeholder="Телефон" />
+                  </div>
+                  <div>
+                    <Textarea placeholder="Ваше сообщение" rows={4} />
+                  </div>
+                  <Button className="w-full" size="lg">
+                    Отправить
+                    <Icon name="Send" className="ml-2" size={18} />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-secondary text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-3xl">🥩</span>
+                <h3 className="text-xl font-bold">МЯСТОРГ</h3>
+              </div>
+              <p className="text-sm opacity-80">Качество проверенное временем с 1994 года</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Продукция</h4>
+              <ul className="space-y-2 text-sm opacity-80">
+                <li>Колбасные изделия</li>
+                <li>Деликатесы</li>
+                <li>Охлаждённое мясо</li>
+                <li>Полуфабрикаты</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Компания</h4>
+              <ul className="space-y-2 text-sm opacity-80">
+                <li>О нас</li>
+                <li>Новости</li>
+                <li>Вакансии</li>
+                <li>Контакты</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Контакты</h4>
+              <ul className="space-y-2 text-sm opacity-80">
+                <li>+7 (495) 123-45-67</li>
+                <li>info@myastorg.ru</li>
+                <li>г. Москва, ул. Промышленная, 15</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-white/20 pt-8 text-center text-sm opacity-80">
+            <p>&copy; 2024 МЯСТОРГ. Все права защищены.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
