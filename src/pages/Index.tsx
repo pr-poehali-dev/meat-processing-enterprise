@@ -18,51 +18,51 @@ const Index = () => {
   const products = [
     { 
       name: 'Колбасные изделия', 
-      description: 'Варёные, полукопчёные, сырокопчёные колбасы премиум качества',
-      icon: 'ChefHat' 
+      description: 'Варёные, полукопчёные, сырокопчёные',
+      icon: 'ChefHat',
+      color: 'from-primary to-pink-500'
     },
     { 
       name: 'Деликатесы', 
-      description: 'Изысканные мясные деликатесы для гурманов',
-      icon: 'Award' 
+      description: 'Изысканные мясные деликатесы',
+      icon: 'Award',
+      color: 'from-secondary to-emerald-500'
     },
     { 
       name: 'Охлаждённое мясо', 
-      description: 'Свежее мясо говядины, свинины, птицы',
-      icon: 'Beef' 
+      description: 'Свежее мясо высшего качества',
+      icon: 'Beef',
+      color: 'from-accent to-orange-500'
     },
     { 
       name: 'Полуфабрикаты', 
-      description: 'Котлеты, пельмени, блинчики собственного производства',
-      icon: 'Package' 
+      description: 'Готовые решения для кухни',
+      icon: 'Package',
+      color: 'from-blue-500 to-cyan-500'
     },
-  ];
-
-  const achievements = [
-    { number: '30+', label: 'Лет на рынке' },
-    { number: '500+', label: 'Видов продукции' },
-    { number: '15 000 т', label: 'Производим в год' },
-    { number: '98%', label: 'Довольных клиентов' },
   ];
 
   const news = [
     {
       title: 'Новая линия по производству деликатесов',
-      date: '15 декабря 2024',
+      date: '15 дек 2024',
       description: 'Запущена современная производственная линия европейского образца',
-      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg'
+      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg',
+      category: 'Производство'
     },
     {
       title: 'МЯСТОРГ получил сертификат качества ISO',
-      date: '3 декабря 2024',
-      description: 'Подтверждено соответствие международным стандартам качества',
-      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/4025602d-ede6-466e-b9cc-0195f08c5c5a.jpg'
+      date: '3 дек 2024',
+      description: 'Подтверждено соответствие международным стандартам',
+      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/4025602d-ede6-466e-b9cc-0195f08c5c5a.jpg',
+      category: 'Сертификация'
     },
     {
       title: 'Расширение производства в 2025 году',
-      date: '20 ноября 2024',
+      date: '20 ноя 2024',
       description: 'Планируется увеличение мощностей на 40%',
-      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/6bad1b10-5e5a-472d-9bff-ea5a245b0ab0.jpg'
+      image: 'https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/6bad1b10-5e5a-472d-9bff-ea5a245b0ab0.jpg',
+      category: 'Развитие'
     },
   ];
 
@@ -70,48 +70,53 @@ const Index = () => {
     {
       title: 'Технолог мясного производства',
       type: 'Полная занятость',
-      salary: 'от 80 000 ₽',
-      requirements: 'Высшее образование, опыт от 2 лет'
+      salary: '80-120k ₽',
+      location: 'Москва',
+      tags: ['Производство', 'Технологии']
     },
     {
       title: 'Оператор линии',
       type: 'Сменный график',
-      salary: 'от 60 000 ₽',
-      requirements: 'Ответственность, внимательность'
+      salary: '60-80k ₽',
+      location: 'Московская обл.',
+      tags: ['Производство']
     },
     {
       title: 'Мастер производства',
       type: 'Полная занятость',
-      salary: 'от 90 000 ₽',
-      requirements: 'Опыт управления персоналом от 3 лет'
+      salary: '90-140k ₽',
+      location: 'Москва',
+      tags: ['Управление', 'Производство']
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 bg-gradient-to-br from-primary via-pink-500 to-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/30">
                 <span className="text-2xl">🥩</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-primary">МЯСТОРГ</h1>
-                <p className="text-xs text-muted-foreground">Качество проверенное временем</p>
+                <h1 className="text-xl font-bold tracking-tight">МЯСТОРГ</h1>
+                <p className="text-xs text-muted-foreground">Premium Quality</p>
               </div>
             </div>
-            <nav className="hidden md:flex gap-6">
+            <nav className="hidden md:flex gap-1">
               {['home', 'about', 'products', 'news', 'vacancies', 'contacts'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === item ? 'text-primary' : 'text-foreground'
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                    activeSection === item 
+                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30' 
+                      : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                   }`}
                 >
                   {item === 'home' && 'Главная'}
-                  {item === 'about' && 'О компании'}
+                  {item === 'about' && 'О нас'}
                   {item === 'products' && 'Продукция'}
                   {item === 'news' && 'Новости'}
                   {item === 'vacancies' && 'Вакансии'}
@@ -119,228 +124,191 @@ const Index = () => {
                 </button>
               ))}
             </nav>
+            <Button className="hidden md:flex shadow-lg shadow-primary/40">
+              Связаться
+            </Button>
           </div>
         </div>
       </header>
 
-      <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary via-primary/20 to-background">
-          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-[100px]" />
         </div>
         
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-6 border border-white/20">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="text-sm font-semibold">30 лет традиций качества</span>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 bg-muted/50 backdrop-blur-sm rounded-full px-4 py-2 border border-border">
+                <div className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </div>
+                <span className="text-sm font-medium">30 лет на рынке</span>
               </div>
               
-              <h2 className="text-6xl md:text-8xl font-bold mb-6 leading-none">
-                <span className="bg-gradient-to-r from-primary via-red-600 to-primary bg-clip-text text-transparent animate-fade-in">МЯСТОРГ</span>
-              </h2>
-              
-              <p className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
-                Мясные продукты<br />премиум класса
-              </p>
-              
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                Современное оборудование, строгий контроль качества и опытные специалисты с 1994 года
-              </p>
+              <div className="space-y-6">
+                <h2 className="text-6xl lg:text-8xl font-bold leading-none tracking-tight">
+                  <span className="bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-transparent">
+                    МЯСТОРГ
+                  </span>
+                </h2>
+                
+                <p className="text-2xl lg:text-3xl font-semibold text-foreground/90 leading-tight">
+                  Мясные продукты премиум класса
+                </p>
+                
+                <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+                  Современное оборудование, строгий контроль качества и команда профессионалов с 1994 года
+                </p>
+              </div>
               
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" onClick={() => scrollToSection('products')} className="text-lg px-8 shadow-lg shadow-primary/50 hover:shadow-xl hover:shadow-primary/60 transition-all">
+                <Button size="lg" onClick={() => scrollToSection('products')} className="bg-primary hover:bg-primary/90 shadow-xl shadow-primary/40 text-lg px-8 h-14 rounded-2xl">
                   Наша продукция
                   <Icon name="ArrowRight" className="ml-2" size={20} />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => scrollToSection('about')} className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20">
+                <Button size="lg" variant="outline" onClick={() => scrollToSection('about')} className="border-2 text-lg px-8 h-14 rounded-2xl hover:bg-muted">
                   О компании
                 </Button>
               </div>
               
-              <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-1">500+</div>
+              <div className="grid grid-cols-3 gap-6 pt-8">
+                <div className="space-y-1">
+                  <div className="text-4xl font-bold bg-gradient-to-br from-primary to-pink-500 bg-clip-text text-transparent">500+</div>
                   <div className="text-sm text-muted-foreground">Видов продукции</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-1">15k т</div>
-                  <div className="text-sm text-muted-foreground">Производим в год</div>
+                <div className="space-y-1">
+                  <div className="text-4xl font-bold bg-gradient-to-br from-secondary to-emerald-500 bg-clip-text text-transparent">15k</div>
+                  <div className="text-sm text-muted-foreground">Тонн в год</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary mb-1">98%</div>
-                  <div className="text-sm text-muted-foreground">Довольных клиентов</div>
+                <div className="space-y-1">
+                  <div className="text-4xl font-bold bg-gradient-to-br from-accent to-orange-500 bg-clip-text text-transparent">98%</div>
+                  <div className="text-sm text-muted-foreground">Довольных</div>
                 </div>
               </div>
             </div>
             
-            <div className="relative animate-scale-in hidden md:block">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-transparent rounded-3xl blur-2xl" />
-              <div className="relative bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-                <img 
-                  src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/4025602d-ede6-466e-b9cc-0195f08c5c5a.jpg" 
-                  alt="Продукция МЯСТОРГ"
-                  className="rounded-2xl shadow-2xl w-full"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-primary text-white rounded-2xl p-6 shadow-2xl">
-                  <div className="text-4xl font-bold">30+</div>
-                  <div className="text-sm opacity-90">Лет на рынке</div>
-                </div>
+            <div className="relative hidden lg:block animate-scale-in">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-transparent to-secondary/40 rounded-[3rem] blur-3xl" />
+                <Card className="relative border-2 border-border/50 overflow-hidden backdrop-blur-sm bg-card/50">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/4025602d-ede6-466e-b9cc-0195f08c5c5a.jpg" 
+                    alt="Продукция"
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="bg-background/90 backdrop-blur-xl rounded-2xl p-6 border border-border">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-sm text-muted-foreground mb-1">Производство</div>
+                          <div className="text-3xl font-bold">15 000 т/год</div>
+                        </div>
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center">
+                          <Icon name="TrendingUp" className="text-white" size={32} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </div>
         </div>
-        
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <Icon name="ChevronDown" className="text-muted-foreground" size={32} />
-        </div>
       </section>
 
+      <section id="about" className="py-24 relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative animate-scale-in">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-primary/30 rounded-[3rem] blur-3xl" />
+              <Card className="relative border-2 border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg" 
+                  alt="О компании"
+                  className="w-full h-[400px] object-cover"
+                />
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-secondary to-emerald-500 rounded-2xl flex items-center justify-center">
+                      <Icon name="Award" className="text-white" size={28} />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground">Сертифицировано</div>
+                      <div className="text-xl font-bold">ISO 9001</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center">
+                      <Icon name="Shield" className="text-white" size={28} />
+                    </div>
+                    <div>
+                      <div className="text-sm text-muted-foreground">Безопасность</div>
+                      <div className="text-xl font-bold">HACCP</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
-
-      <section id="about" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
-              <Badge className="mb-4">О нас</Badge>
-              <h2 className="text-4xl font-bold mb-6">История и достижения</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 animate-fade-in">
+              <div>
+                <Badge className="mb-4 bg-secondary/20 text-secondary border-secondary/30">О нас</Badge>
+                <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">История и достижения</h2>
+              </div>
+              
+              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">МЯСТОРГ</strong> — одно из ведущих мясоперерабатывающих предприятий региона. 
-                  С 1994 года мы поставляем качественную продукцию на столы тысяч семей.
+                  <span className="text-foreground font-semibold">МЯСТОРГ</span> — одно из ведущих мясоперерабатывающих предприятий региона. 
+                  С 1994 года мы поставляем качественную продукцию тысячам семей.
                 </p>
                 <p>
-                  Наше производство оснащено современным европейским оборудованием, что позволяет 
+                  Производство оснащено современным европейским оборудованием, что позволяет 
                   выпускать более 500 наименований продукции по новейшим технологиям.
                 </p>
                 <p>
-                  Мы гордимся нашей командой профессионалов — более 400 специалистов ежедневно 
-                  работают над тем, чтобы наша продукция соответствовала самым высоким стандартам качества.
+                  Более 400 специалистов ежедневно работают над тем, чтобы наша продукция 
+                  соответствовала самым высоким стандартам качества.
                 </p>
               </div>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <div className="flex items-center gap-2">
-                  <Icon name="Award" className="text-primary" size={24} />
-                  <span className="font-semibold">Сертификат ISO 9001</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="Shield" className="text-primary" size={24} />
-                  <span className="font-semibold">HACCP система</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative animate-scale-in">
-              <img 
-                src="https://cdn.poehali.dev/projects/c68bdca7-6e26-4de3-ad06-33a631f85767/files/cb8723bc-01b7-4b2e-aefb-56550824c3a0.jpg" 
-                alt="Производство"
-                className="rounded-2xl shadow-2xl"
-              />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="products" className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Продукция</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши категории</h2>
+      <section id="products" className="py-24 relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="mb-4 bg-primary/20 text-primary border-primary/30">Продукция</Badge>
+            <h2 className="text-5xl lg:text-6xl font-bold mb-4 tracking-tight">Наши категории</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Широкий ассортимент качественной мясной продукции для любого случая
+              Широкий ассортимент качественной мясной продукции
             </p>
           </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product, index) => (
               <Card 
-                key={index} 
-                className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in cursor-pointer"
+                key={index}
+                className="group relative border-2 border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 cursor-pointer animate-fade-in overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon name={product.icon as any} className="text-primary" size={32} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <CardHeader className="relative">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${product.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}>
+                    <Icon name={product.icon as any} className="text-white" size={32} />
                   </div>
-                  <CardTitle className="text-xl">{product.name}</CardTitle>
-                  <CardDescription className="text-base">{product.description}</CardDescription>
+                  <CardTitle className="text-2xl">{product.name}</CardTitle>
+                  <CardDescription className="text-base text-muted-foreground">{product.description}</CardDescription>
                 </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="news" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Новости</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Последние публикации</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Будьте в курсе развития нашего предприятия
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {news.map((item, index) => (
-              <Card 
-                key={index} 
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in cursor-pointer group"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="relative overflow-hidden h-48">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="text-sm text-muted-foreground mb-2">{item.date}</div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">{item.title}</CardTitle>
-                  <CardDescription className="text-base">{item.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="vacancies" className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <Badge className="mb-4">Карьера</Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Открытые вакансии</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Присоединяйтесь к нашей команде профессионалов
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {vacancies.map((vacancy, index) => (
-              <Card 
-                key={index} 
-                className="hover:shadow-lg transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader>
-                  <CardTitle className="text-xl mb-2">{vacancy.title}</CardTitle>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Icon name="Clock" size={16} />
-                      <span>{vacancy.type}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary font-semibold">
-                      <Icon name="Wallet" size={16} />
-                      <span>{vacancy.salary}</span>
-                    </div>
-                    <div className="flex items-start gap-2 text-muted-foreground">
-                      <Icon name="CheckCircle2" size={16} className="mt-0.5 flex-shrink-0" />
-                      <span>{vacancy.requirements}</span>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full">Откликнуться</Button>
+                <CardContent className="relative">
+                  <Button variant="ghost" className="w-full justify-between group-hover:bg-muted">
+                    Подробнее
+                    <Icon name="ArrowRight" className="group-hover:translate-x-1 transition-transform" size={18} />
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -348,71 +316,176 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div className="animate-fade-in">
-              <Badge className="mb-4">Контакты</Badge>
-              <h2 className="text-4xl font-bold mb-6">Свяжитесь с нами</h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="MapPin" className="text-primary" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Адрес</h3>
-                    <p className="text-muted-foreground">г. Москва, ул. Промышленная, д. 15</p>
-                  </div>
+      <section id="news" className="py-24 relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="mb-4 bg-secondary/20 text-secondary border-secondary/30">Новости</Badge>
+            <h2 className="text-5xl lg:text-6xl font-bold mb-4 tracking-tight">Последние публикации</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Будьте в курсе развития предприятия
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {news.map((item, index) => (
+              <Card 
+                key={index}
+                className="group border-2 border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 cursor-pointer animate-fade-in overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <Badge className="absolute top-4 left-4 bg-primary/90 backdrop-blur-sm">
+                    {item.category}
+                  </Badge>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Phone" className="text-primary" size={24} />
+                <CardHeader>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <Icon name="Calendar" size={14} />
+                    <span>{item.date}</span>
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Телефон</h3>
-                    <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors leading-tight">
+                    {item.title}
+                  </CardTitle>
+                  <CardDescription className="text-base">{item.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="ghost" className="w-full justify-between group-hover:bg-muted">
+                    Читать далее
+                    <Icon name="ArrowRight" className="group-hover:translate-x-1 transition-transform" size={18} />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="vacancies" className="py-24 relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">Карьера</Badge>
+            <h2 className="text-5xl lg:text-6xl font-bold mb-4 tracking-tight">Открытые вакансии</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Присоединяйтесь к команде профессионалов
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {vacancies.map((vacancy, index) => (
+              <Card 
+                key={index}
+                className="group border-2 border-border/50 bg-card/50 backdrop-blur-sm hover:border-secondary/50 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader>
+                  <CardTitle className="text-2xl mb-4">{vacancy.title}</CardTitle>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Icon name="Clock" size={18} className="text-secondary" />
+                      <span className="text-sm">{vacancy.type}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Icon name="DollarSign" size={18} className="text-secondary" />
+                      <span className="text-lg font-bold text-secondary">{vacancy.salary}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Icon name="MapPin" size={18} className="text-primary" />
+                      <span className="text-sm">{vacancy.location}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Mail" className="text-primary" size={24} />
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {vacancy.tags.map((tag, i) => (
+                      <Badge key={i} variant="outline" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@myastorg.ru</p>
+                </CardHeader>
+                <CardContent>
+                  <Button className="w-full bg-secondary hover:bg-secondary/90 shadow-lg shadow-secondary/40">
+                    Откликнуться
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="py-24 relative">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <Badge className="mb-4 bg-primary/20 text-primary border-primary/30">Контакты</Badge>
+                <h2 className="text-5xl font-bold mb-4 tracking-tight">Свяжитесь с нами</h2>
+                <p className="text-lg text-muted-foreground">Ответим на все вопросы в ближайшее время</p>
+              </div>
+              
+              <div className="space-y-4">
+                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 hover:border-primary/50 transition-all cursor-pointer group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Icon name="MapPin" className="text-white" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Адрес</h3>
+                      <p className="text-muted-foreground">г. Москва, ул. Промышленная, д. 15</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Clock" className="text-primary" size={24} />
+                </Card>
+                
+                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 hover:border-secondary/50 transition-all cursor-pointer group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-secondary to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Icon name="Phone" className="text-white" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Телефон</h3>
+                      <p className="text-muted-foreground">+7 (495) 123-45-67</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Режим работы</h3>
-                    <p className="text-muted-foreground">Пн-Пт: 8:00 - 20:00<br />Сб-Вс: 9:00 - 18:00</p>
+                </Card>
+                
+                <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm p-6 hover:border-accent/50 transition-all cursor-pointer group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-accent to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Icon name="Mail" className="text-background" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Email</h3>
+                      <p className="text-muted-foreground">info@myastorg.ru</p>
+                    </div>
                   </div>
-                </div>
+                </Card>
               </div>
             </div>
-            <Card className="animate-scale-in">
+            
+            <Card className="border-2 border-border/50 bg-card/50 backdrop-blur-sm animate-scale-in">
               <CardHeader>
-                <CardTitle>Отправить сообщение</CardTitle>
-                <CardDescription>Мы ответим вам в ближайшее время</CardDescription>
+                <CardTitle className="text-3xl">Отправить сообщение</CardTitle>
+                <CardDescription className="text-base">Заполните форму и мы свяжемся с вами</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-4">
                   <div>
-                    <Input placeholder="Ваше имя" />
+                    <Input placeholder="Ваше имя" className="h-12 bg-background/50" />
                   </div>
                   <div>
-                    <Input type="email" placeholder="Email" />
+                    <Input type="email" placeholder="Email" className="h-12 bg-background/50" />
                   </div>
                   <div>
-                    <Input type="tel" placeholder="Телефон" />
+                    <Input type="tel" placeholder="Телефон" className="h-12 bg-background/50" />
                   </div>
                   <div>
-                    <Textarea placeholder="Ваше сообщение" rows={4} />
+                    <Textarea placeholder="Ваше сообщение" rows={5} className="bg-background/50" />
                   </div>
-                  <Button className="w-full" size="lg">
+                  <Button className="w-full h-12 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/40 text-lg">
                     Отправить
                     <Icon name="Send" className="ml-2" size={18} />
                   </Button>
@@ -423,44 +496,47 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-secondary text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+      <footer className="relative py-16 border-t border-border">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
+        <div className="container mx-auto px-4 lg:px-8 relative">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-3xl">🥩</span>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-11 h-11 bg-gradient-to-br from-primary to-pink-500 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/30">
+                  <span className="text-2xl">🥩</span>
+                </div>
                 <h3 className="text-xl font-bold">МЯСТОРГ</h3>
               </div>
-              <p className="text-sm opacity-80">Качество проверенное временем с 1994 года</p>
+              <p className="text-sm text-muted-foreground">Качество проверенное временем с 1994 года</p>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Продукция</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>Колбасные изделия</li>
-                <li>Деликатесы</li>
-                <li>Охлаждённое мясо</li>
-                <li>Полуфабрикаты</li>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="hover:text-foreground cursor-pointer transition-colors">Колбасные изделия</li>
+                <li className="hover:text-foreground cursor-pointer transition-colors">Деликатесы</li>
+                <li className="hover:text-foreground cursor-pointer transition-colors">Охлаждённое мясо</li>
+                <li className="hover:text-foreground cursor-pointer transition-colors">Полуфабрикаты</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Компания</h4>
-              <ul className="space-y-2 text-sm opacity-80">
-                <li>О нас</li>
-                <li>Новости</li>
-                <li>Вакансии</li>
-                <li>Контакты</li>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li className="hover:text-foreground cursor-pointer transition-colors">О нас</li>
+                <li className="hover:text-foreground cursor-pointer transition-colors">Новости</li>
+                <li className="hover:text-foreground cursor-pointer transition-colors">Вакансии</li>
+                <li className="hover:text-foreground cursor-pointer transition-colors">Контакты</li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Контакты</h4>
-              <ul className="space-y-2 text-sm opacity-80">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>+7 (495) 123-45-67</li>
                 <li>info@myastorg.ru</li>
                 <li>г. Москва, ул. Промышленная, 15</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/20 pt-8 text-center text-sm opacity-80">
+          <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
             <p>&copy; 2024 МЯСТОРГ. Все права защищены.</p>
           </div>
         </div>
